@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/clientes','ControladorCliente@index');
+Route::get('/contato','ControladorContato@index');
+
+Route::get('/clientes/novo', 'ControladorCliente@create');
+Route::post('/clientes', 'ControladorCliente@store');

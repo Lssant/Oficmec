@@ -8,10 +8,18 @@
     <!--<meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <link rel="stylesheet" type="text/css" media="screen" href="{{ asset('css/app.css') }}" />
     <!-- <script src="main.js"></script> -->
+    <style>
+        body {
+            padding: 10px;
+        }
+        .navbar{
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        @component('componente_navbar')
+        @component('componente_navbar', ["current" => $current])
         @endcomponent
         <main role="main">
             @hasSection('body')
