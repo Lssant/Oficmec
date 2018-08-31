@@ -15,7 +15,8 @@ class ControladorCliente extends Controller
      */
     public function index()
     {
-        return view('cliente.clientes');
+        $clis = CadastroCliente::all();
+        return view('cliente.clientes', compact('clis'));
     }
 
     /**
