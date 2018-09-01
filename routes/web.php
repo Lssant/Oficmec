@@ -20,3 +20,6 @@ Route::get('/contato','ControladorContato@index');
 
 Route::get('/clientes/novo', 'ControladorCliente@create');
 Route::post('/clientes', 'ControladorCliente@store');
+Route::get('/clientes/apagar/{id}','ControladorCliente@destroy');
+Route::get('/clientes/editar/{id}','ControladorCliente@edit');
+Route::post('/clientes/{id}','ControladorCliente@update');

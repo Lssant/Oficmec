@@ -64,7 +64,11 @@ class ControladorCliente extends Controller
      */
     public function edit($id)
     {
-        //
+        $cli = CadastroCliente::find($id);
+        if(isset($cli)){
+            return view('cliente.editarcliente', compact('cli'));
+        }
+        return redirect('/clientes');
     }
 
     /**
@@ -76,7 +80,16 @@ class ControladorCliente extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cli = CadastroCliente::find($id);
+        if(isset($cli)){
+            // input('nomeCliente') é o name do input do form
+            $cli->nome = $request->input('nomeCliente');
+            $cli->endereco = $request->input('endCliente');
+            $cli->RG = $request->input('RGCliente');
+            $cli->cpf = $request->input('cpfCliente');
+            $cli->save();
+        }
+        return redirect('/clientes');
     }
 
     /**
@@ -87,6 +100,10 @@ class ControladorCliente extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cli = CadastroCliente::find($id);
+        if(isset($cli)) {
+            $cli->delete();
+        }
+        return redirect('/clientes');
     }
 }
