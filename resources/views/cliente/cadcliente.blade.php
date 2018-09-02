@@ -8,8 +8,13 @@
             @csrf
             <div class="form-group">
                 <label for="nomeCliente">Nome</label>
-                <input type="text" class="form-control" name="nomeCliente" id="nomeCliente" placeholder="Cliente">
-           
+            <input type="text" class="form-control {{ $errors->has('nome') ? 'is-invalid' : '' }}" name="nomeCliente" id="nomeCliente" placeholder="Cliente">
+@if($errors->has('nome'))
+                <!-- o {{ $errors->has('nome') ? 'is-invalid' : '' }} é pra aparecer a validação -->
+                <div class="invalid-feedback">
+    {{ $errors->first('nome') }}     
+                </div>
+@endif
                 <label for="endCliente">Endereço</label>
                 <input type="text" class="form-control" name="endCliente" id="endCliente" placeholder="Endereço">
             
@@ -29,7 +34,7 @@
     <div class="card-footer">
     @foreach ($errors->all() as $error)
         <div class="alert alert-danger" role="alert">
-            {{ $error}}
+            {{ $error }}
         </div>
     @endforeach
     </div>

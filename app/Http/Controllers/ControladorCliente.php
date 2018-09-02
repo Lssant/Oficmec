@@ -37,11 +37,29 @@ class ControladorCliente extends Controller
      */
     public function store(Request $request)
     {
+        //validação modificando a msg
+        $regras = [
+        'nome' => 'required|min:3|max:20|unique:cadastro_clientes',
+        'endereco' => 'required',
+        'RG' => 'required',
+        'cpf' => 'required'
+        ];
+        $mensagens = [
+           'nome.required' => 'O nome é requerido',
+           'nome.min' => 'o minimo é 3 caracteres' 
+        ];
+        $request->validate($regras, $mensagens);
+
+    /*
         $request->validate([
-            'nome' => 'required'
+            // validação separando cada parametro com pipe min max caracteres e unico na tabela x
+            'nome' => 'required|min:3|max:20|unique:cadastro_clientes',
+            'endereco' => 'required',
+            'RG' => 'required',
+            'cpf' => 'required'
 
         ]);
-
+    */
         $cliente = new CadastroCliente();
         $cliente->nome = $request->input('nomeCliente');
         $cliente->endereco = $request->input('endCliente');
