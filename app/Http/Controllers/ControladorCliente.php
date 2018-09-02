@@ -37,6 +37,11 @@ class ControladorCliente extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nome' => 'required'
+
+        ]);
+
         $cliente = new CadastroCliente();
         $cliente->nome = $request->input('nomeCliente');
         $cliente->endereco = $request->input('endCliente');
