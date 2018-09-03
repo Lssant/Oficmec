@@ -25,7 +25,7 @@
                         <p class="card=text">
                             Aqui cadstra os produtos
                         </p>
-                        <a href="#" class="btn btn-primary">cadastre</a>
+                        <a href="#" class="btn btn-primary">cadastro</a>
                     </div>
                 </div>
             </div>

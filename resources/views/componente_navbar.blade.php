@@ -11,11 +11,11 @@
       </li>
 
       <li @if($current=="servicos") class="nav-item active" @else class="nav-item" @endif>
-        <a class="nav-link" href="/servicos">Serviços</a>
+        <a class="nav-link" href="/produtos">Produtos</a>
       </li>
 
       <li @if($current=="clientes") class="nav-item active" @else class="nav-item" @endif>
-        <a class="nav-link" href="/clientes">Cadastros</a>
+        <a class="nav-link" href="/clientes">Clientes</a>
       </li>
     
     </ul>
