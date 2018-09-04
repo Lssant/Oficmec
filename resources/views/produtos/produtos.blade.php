@@ -5,7 +5,8 @@
 <div class="card border">
     <div class="card-body">
         <h5 class="card-title">Cadastro de Produtos</h5>
-        <table class="table table-ordered table-hover">
+
+        <table class="table table-ordered table-hover" id="tabelaProdutos">
             <thead>
                 <tr>
                     <th>Código</th>
@@ -70,11 +71,46 @@
 
 @section('javascript')
     <script type="text/javascript">
+
+        $.ajaxSetup({
+            headers:{
+                'X-CSRF-TOKEN': "{{ csrf_token()}}"
+            }
+        });
+
         function novoProduto() {
             $('#nomeProduto').val('');
             $('#precoProduto').val('');
             $('#quantidadeProduto').val('');
             $('#dlgProdutos').modal('show')
         }
+        
+        function montarLinha(p) {
+            var linha ="<tr>"+
+                "<td>" + p.id +"</td>"+
+                "<td>" + p.nome +"</td>"+
+                "<td>" + p.estoque +"</td>"+
+                "<td>" + p.preco +"</td>"+
+                "<td>" + 
+                    '<button class="btn btn-sm btn-primary">Editar</button>'+
+                    '<button class="btn btn-sm btn-danger">Apagar</button>'+
+                "</td>"+
+                "</tr>";
+                return linha;
+        }
+
+        function carregarProdutos() {
+            $.getJSON('/api/produtos', function(produtos){
+                for(i=0;i<produtos.length;i++) {
+                    linha = montarLinha(produtos[i]);
+                    $('#tabelaProdutos>tbody').append(linha);
+                }
+            });
+                
+        }
+        $(function(){
+            carregarProdutos()
+        })
+
     </script>
 @endsection

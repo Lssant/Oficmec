@@ -24,4 +24,4 @@ Route::get('/clientes/apagar/{id}','ControladorCliente@destroy');
 Route::get('/clientes/editar/{id}','ControladorCliente@edit');
 Route::post('/clientes/{id}','ControladorCliente@update');
 
-Route::get('/produtos', 'ControladorProduto@index');
+Route::get('/produtos', 'ControladorProduto@indexView');

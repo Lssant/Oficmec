@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Produto;
 
 class ControladorProduto extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    
+    public function indexView()
     {
         return view('produtos.produtos');
+    }
+
+    public function index()
+    {
+        $prods = Produto::all();
+        return $prods->toJson();
     }
 
     /**
@@ -34,7 +37,12 @@ class ControladorProduto extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $prod = new Produtos();
+        $prod->nome = $request->input('nome');
+        $prod->estoque = $request->input('estoque');
+        $prod->preco = $request->input('preco');
+        $prod->save();
+        return json_encode($prod);
     }
 
     /**
