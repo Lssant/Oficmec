@@ -11,6 +11,9 @@ class TipoTelefoneSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('tipo_telefones')->insert(['nome' => 'Residencial']);
+        DB::table('tipo_telefones')->insert(['nome' => 'Celular']);
+        DB::table('tipo_telefones')->insert(['nome' => 'Comercial']);
+
     }
 }

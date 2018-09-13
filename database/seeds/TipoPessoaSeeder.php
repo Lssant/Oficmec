@@ -11,6 +11,8 @@ class TipoPessoaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('tipo_pessoas')->insert(['nome' => 'Cliente']);
+        DB::table('tipo_pessoas')->insert(['nome' => 'Mecânico']);
+
     }
 }
