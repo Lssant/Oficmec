@@ -1,7 +1,10 @@
 <?php
 
+use App\TipoPessoa;
+use App\TipoTelefone;
 use App\Endereco;
 use App\Pessoa;
+
 
 
 Route::get('/', function () {
@@ -18,7 +21,14 @@ Route::get('/clientes/editar/{id}','ControladorCliente@edit');
 Route::post('/clientes/{id}','ControladorCliente@update');
 
 Route::get('/produtos', 'ControladorProduto@indexView');
+// ----
 
+Route::get('/tipopessoa', 'ControllerTipoPessoa@index');
+Route::get('/tipopessoa/novo', 'ControllerTipoPessoa@create');
+Route::post('/tipopessoa', 'ControllerTipoPessoa@store');
+
+
+// ----
 Route::get('/pessoa', function () {
     $pes = Pessoa::all();
     echo "<table>";
@@ -34,6 +44,7 @@ Route::get('/pessoa', function () {
     }
 
 });
+
 
 Route::get('/endereco', function () {
     $end = Endereco::all();
@@ -57,4 +68,28 @@ Route::get('/endereco', function () {
         }
     }
 
+});
+
+Route::get('/testetipopessoa', function () {
+    $tipes = TipoPessoa::all();
+    echo "<table>";
+    echo "<thead><td> </td></thead>";
+    foreach ($tipes as $tp) {
+        echo "<tr>";
+        echo "<td>". $tp->id ."</td>";
+        echo "<td>". $tp->nome ."</td>";
+        echo "</tr>";   
+    }
+});
+
+Route::get('/testetipotelefone', function () {
+    $tiptel = TipoTelefone::all();
+    echo "<table>";
+    echo "<thead><td> </td></thead>";
+    foreach ($tiptel as $tt) {
+        echo "<tr>";
+        echo "<td>". $tt->id ."</td>";
+        echo "<td>". $tt->nome ."</td>";
+        echo "</tr>";  
+    }
 });
