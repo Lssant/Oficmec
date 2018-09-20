@@ -15,7 +15,7 @@ class ControllerTipoPessoa extends Controller
     public function index()
     {
         $tpPessoa = TipoPessoa::all();
-        return view('tipoPessoa.pessoas', compact('tpPessoa'));
+        return view('tipoPessoa.tipopessoas', compact('tpPessoa'));
     }
 
     /**
@@ -36,7 +36,9 @@ class ControllerTipoPessoa extends Controller
      */
     public function store(Request $request)
     {
-        
+        $tipoPessoa = new TipoPessoa();
+        $tipoPessoa ->nome = $request->input('tipoPessoa');// no input é da view
+        $tipoPessoa->save();
     }
 
     /**

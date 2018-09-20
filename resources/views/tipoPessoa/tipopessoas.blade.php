@@ -30,7 +30,7 @@
 @endif
     </div>
     <div class="card-footer">
-        <a href="#" class="btn btn-sm btn-primary" role="button">Novo cliente</a>
+        <a href="/tipopessoa/novo" class="btn btn-sm btn-primary" role="button">Novo cliente</a>
     </div>
 </div>
 
