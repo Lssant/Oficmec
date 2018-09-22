@@ -20,8 +20,8 @@
                     <td>{{$tp->id}}</td>
                     <td>{{$tp->nome}}</td>
                     <td>
-                        <a href="#" class="btn btn-sm btn-primary">Editar</a>
-                        <a href="#" class="btn btn-sm btn-danger">Apagar</a>
+                        <a href="/tipopessoa/editar/{{$tp->id}}" class="btn btn-sm btn-primary">Editar</a>
+                        <a href="/tipopessoa/apagar/{{$tp->id}}" class="btn btn-sm btn-danger">Apagar</a>
                     </td>
                 </tr>
     @endforeach
@@ -30,7 +30,7 @@
 @endif
     </div>
     <div class="card-footer">
-        <a href="/tipopessoa/novo" class="btn btn-sm btn-primary" role="button">Novo cliente</a>
+        <a href="/tipopessoa/novo" class="btn btn-sm btn-primary" role="button">Novo Tipo</a>
     </div>
 </div>
 

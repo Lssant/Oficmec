@@ -39,6 +39,9 @@ class ControllerTipoPessoa extends Controller
         $tipoPessoa = new TipoPessoa();
         $tipoPessoa ->nome = $request->input('tipoPessoa');// no input é da view
         $tipoPessoa->save();
+        
+        return redirect('/tipopessoa');
+
     }
 
     /**
@@ -60,7 +63,11 @@ class ControllerTipoPessoa extends Controller
      */
     public function edit($id)
     {
-        //
+        $tpes = TipoPessoa::find($id);
+        if(isset($tpes)){
+            return view('tipoPessoa.edit_tipo_pessoa', compact('tpes'));
+        }
+        return redirect('/tipopessoa');
     }
 
     /**
@@ -72,7 +79,13 @@ class ControllerTipoPessoa extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tpes =TipoPessoa::find($id);
+        if(isset($tpes)){
+            // input('nomeCliente') é o name do input do form
+            $tpes->nome = $request->input('tipoPessoa');
+            $tpes->save();
+        }
+        return redirect('/tipopessoa');
     }
 
     /**
@@ -83,6 +96,10 @@ class ControllerTipoPessoa extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tpes = TipoPessoa::find($id);
+        if(isset($tpes)){
+            $tpes->delete();
+        }
+        return redirect('/tipopessoa');
     }
 }

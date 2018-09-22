@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\TipoTelefone;
 
 class ControllerTipoTelefone extends Controller
 {
@@ -13,7 +14,8 @@ class ControllerTipoTelefone extends Controller
      */
     public function index()
     {
-        //
+        $tpTel = TipoTelefone::all();
+        return view('tipoTelefone.tipotelefone', compact('tpTel'));
     }
 
     /**
@@ -23,7 +25,7 @@ class ControllerTipoTelefone extends Controller
      */
     public function create()
     {
-        //
+        return view('tipoTelefone.cad_tipo_telefone');
     }
 
     /**
@@ -34,7 +36,11 @@ class ControllerTipoTelefone extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tpTel = new TipoTelefone();
+        $tpTel ->nome = $request->input('tipoTelefone');
+        $tpTel->save();
+
+        return redirect('/tipotelefone');
     }
 
     /**
@@ -56,7 +62,11 @@ class ControllerTipoTelefone extends Controller
      */
     public function edit($id)
     {
-        //
+        $tpTel = TipoTelefone::find($id);
+        if (isset($tpTel)) {
+            return view('tipoTelefone.edit_tipo_telefone',compact('tpTel'));
+        }
+        return redirect('/tipotelefone');
     }
 
     /**
@@ -68,7 +78,12 @@ class ControllerTipoTelefone extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tpTel = TipoTelefone::find($id);
+        if (isset($tpTel)) {
+            $tpTel->nome = $request->input('tipotelefone');
+            $tpTel->save();
+        }
+        return redirect('/tipotelefone');
     }
 
     /**
@@ -79,6 +94,10 @@ class ControllerTipoTelefone extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tpTel = TipoTelefone::find($id);
+        if (isset($tpTel)) {
+            $tpTel->delete();
+        }
+        return redirect('/tipotelefone');
     }
 }

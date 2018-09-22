@@ -21,12 +21,23 @@ Route::get('/clientes/editar/{id}','ControladorCliente@edit');
 Route::post('/clientes/{id}','ControladorCliente@update');
 
 Route::get('/produtos', 'ControladorProduto@indexView');
-// ----
+// ---- tipo pessoa
 
 Route::get('/tipopessoa', 'ControllerTipoPessoa@index');
 Route::get('/tipopessoa/novo', 'ControllerTipoPessoa@create');
 Route::post('/tipopessoa', 'ControllerTipoPessoa@store');
+Route::get('/tipopessoa/editar/{id}','ControllerTipoPessoa@edit');
+Route::post('/tipopessoa/{id}','ControllerTipoPessoa@update');
+Route::get('/tipopessoa/apagar/{id}','ControllerTipoPessoa@destroy');
 
+// ----
+
+Route::get('/tipotelefone', 'ControllerTipoTelefone@index');
+Route::get('/tipotelefone/novo', 'ControllerTipoTelefone@create');
+Route::post('/tipotelefone', 'ControllerTipoTelefone@store');
+Route::get('/tipotelefone/editar/{id}', 'ControllerTipoTelefone@edit');
+Route::post('/tipotelefone/{id}', 'ControllerTipoTelefone@update');
+Route::get('/tipotelefone/apagar/{id}','ControllerTipoTelefone@destroy');
 
 // ----
 Route::get('/pessoa', function () {
