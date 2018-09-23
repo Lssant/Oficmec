@@ -4,6 +4,7 @@ use App\TipoPessoa;
 use App\TipoTelefone;
 use App\Endereco;
 use App\Pessoa;
+use App\Telefone;
 
 
 
@@ -21,6 +22,12 @@ Route::get('/clientes/editar/{id}','ControladorCliente@edit');
 Route::post('/clientes/{id}','ControladorCliente@update');
 
 Route::get('/produtos', 'ControladorProduto@indexView');
+
+// -----
+
+Route::get('/pessoa', 'ControllerPessoa@index');
+
+
 // ---- tipo pessoa
 
 Route::get('/tipopessoa', 'ControllerTipoPessoa@index');
@@ -30,7 +37,7 @@ Route::get('/tipopessoa/editar/{id}','ControllerTipoPessoa@edit');
 Route::post('/tipopessoa/{id}','ControllerTipoPessoa@update');
 Route::get('/tipopessoa/apagar/{id}','ControllerTipoPessoa@destroy');
 
-// ----
+// ---- tipo telefone
 
 Route::get('/tipotelefone', 'ControllerTipoTelefone@index');
 Route::get('/tipotelefone/novo', 'ControllerTipoTelefone@create');
@@ -40,7 +47,7 @@ Route::post('/tipotelefone/{id}', 'ControllerTipoTelefone@update');
 Route::get('/tipotelefone/apagar/{id}','ControllerTipoTelefone@destroy');
 
 // ----
-Route::get('/pessoa', function () {
+Route::get('/testepessoa', function () {
     $pes = Pessoa::all();
     echo "<table>";
     echo "<thead><td> </td></thead>";
@@ -48,6 +55,7 @@ Route::get('/pessoa', function () {
         echo "<tr>";
         echo "<td>". $p->id ."</td>";
         echo "<td>". $p->nome ."</td>";
+        echo "<td>". $p->telefone ."</td>";
         echo "<td>". $p->endereco->logradouro ."</td>";
         //echo "<td>".  ."</td>";
         echo "</tr>";
@@ -57,7 +65,7 @@ Route::get('/pessoa', function () {
 });
 
 
-Route::get('/endereco', function () {
+Route::get('/testendereco', function () {
     $end = Endereco::all();
 
     if(count($end) === 0)
