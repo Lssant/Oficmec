@@ -13,7 +13,7 @@
                         <th>Nome</th>
                         <th>cpf</th>
                         <th>status</th>
-                        <th>numero</th>
+                        <th>Telefone</th>
                         <th>Ação</th>
                     </tr>
                 </thead>

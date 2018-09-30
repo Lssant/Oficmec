@@ -23,10 +23,11 @@ Route::post('/clientes/{id}','ControladorCliente@update');
 
 Route::get('/produtos', 'ControladorProduto@indexView');
 
-// -----
+// ----- Pessoa
 
 Route::get('/pessoa', 'ControllerPessoa@index');
-
+Route::get('/pessoa/novo', 'ControllerPessoa@create');
+Route::post('/pessoa','ControllerPessoa@store');
 
 // ---- tipo pessoa
 
