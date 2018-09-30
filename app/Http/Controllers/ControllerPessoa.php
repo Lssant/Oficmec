@@ -65,14 +65,18 @@ class ControllerPessoa extends Controller
         $end->bairro = $request->input('bairroPessoa');
         $end->cep = $request->input('cepPessoa');
         $end->PtReferencia = $request->input('refPessoa');
-        //$pes->save();
-        //return json_encode($pes);
         
-        $pes = [$tel->numero ." - ". $tel->tipo_telefone_id." - ".
+        $pes->save();
+        $pes->telefone()->save($tel);
+        $pes->endereco()->save($end);
+        return view('pessoa.pessoa');
+        
+        /*$pes = [$tel->numero ." - ". $tel->tipo_telefone_id." - ".
                 $end->logradouro ." - ". $end->numero." - ".
                 $end->complemento ." - ". $end->bairro." - ".
                 $end->cep ." - ". $end->PtReferencia];
         return $pes;
+        */
         //return $pes->toJson();
     }
     
