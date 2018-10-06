@@ -5,7 +5,7 @@
     <div class="card border">
         <div class="card-body">
             <h5 class="card-title">Cadastro de Pessoas</h5>
-        @if(count($pes) > 0)
+@if(count($pes) > 0)
             <table class="table table-ordered table-hover">
                 <thead>
                     <tr>
@@ -24,10 +24,11 @@
                         <td>{{$p->nome}}</td>
                         <td>{{$p->cpf}}</td>
                         <td>{{$p->status}}</td>
+                           
                         @foreach ($p->telefone as $tel)
                             <td>{{$tel->numero}}</td>
                         @endforeach
-                        
+                           
                     {{--<td>{{$p->tipo_pessoa_id}}</td>
                         <td>{{$p->telefone}}</td>
                         <td>{{$p->endereco->logradouro}}</td>
@@ -39,7 +40,7 @@
                     </tr>
     @endforeach
                 </tbody>
-            </table>    
+            </table> 
     @endif
         </div>
         <div class="card-footer">

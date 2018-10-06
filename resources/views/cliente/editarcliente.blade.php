@@ -8,7 +8,7 @@
             @csrf
             <div class="form-group">
                 <label for="nomeCliente">Nome</label>
-            <input type="text" class="form-control" name="nomeCliente" value="{{$cli->nome}}" id="nomeCliente" placeholder="Cliente">
+                <input type="text" class="form-control" name="nomeCliente" value="{{$cli->nome}}" id="nomeCliente" placeholder="Cliente">
            
                 <label for="endCliente">Endereço</label>
                 <input type="text" class="form-control" name="endCliente" value="{{$cli->endereco}}" id="endCliente" placeholder="Endereço">

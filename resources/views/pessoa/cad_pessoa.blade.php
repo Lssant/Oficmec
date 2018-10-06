@@ -69,7 +69,7 @@
 
                 <label for="refPessoa">Ponto de Referencia</label>
                 <input type="text" class="form-control" name="refPessoa" id="refPessoa" placeholder="Ex: proximo a ...">
-            </td>
+            
             </div>
             <button type="submit" class="btn btn-primary btn-sn">Salvar</button>
             <button type="cancel" class="btn btn-danger btn-sa">cancel</button>

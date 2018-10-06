@@ -28,6 +28,8 @@ Route::get('/produtos', 'ControladorProduto@indexView');
 Route::get('/pessoa', 'ControllerPessoa@index');
 Route::get('/pessoa/novo', 'ControllerPessoa@create');
 Route::post('/pessoa','ControllerPessoa@store');
+Route::get('/pessoa/editar/{id}','ControllerPessoa@edit');
+Route::post('/pessoa/{id}','ControllerPessoa@update');
 
 // ---- tipo pessoa
 

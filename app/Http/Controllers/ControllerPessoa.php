@@ -99,7 +99,13 @@ class ControllerPessoa extends Controller
      */
     public function edit($id)
     {
-        //
+        $pes = Pessoa::with('telefone', 'endereco')->find($id);
+        $tpTel = TipoTelefone::all();
+        $tpPes = TipoPessoa::all();
+        if(isset($pes)){
+            return view('pessoa.edit_pessoa', compact('pes', 'tpPes', 'tpTel'));
+        }
+        return redirect('/pessoa.pessoa');
     }
 
     /**
