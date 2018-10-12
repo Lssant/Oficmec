@@ -17,7 +17,7 @@ class CreateTelefonesTable extends Migration
             $table->increments('id');
             $table->string('numero');
             $table->integer('tipo_telefone_id')->unsigned()->nullable();
-            $table->foreing('tipo_telefone_id')->references('id')->on('tipo_telefones');
+            $table->foreign('tipo_telefone_id')->references('id')->on('tipo_telefones');
             $table->timestamps();
         });
     }

@@ -19,7 +19,6 @@ class ControllerPessoa extends Controller
      */
     public function index()
     {
-        //$pes = Pessoa::all();
         $pes = Pessoa::with('telefone', 'endereco')->get();
         return view('pessoa.pessoa', compact('pes'));
     }
@@ -60,7 +59,7 @@ class ControllerPessoa extends Controller
         $tel->tipo_telefone_id = $request->input('tipoTelPessoa');
         
         $end->logradouro = $request->input('logradouroPessoa');
-        $end->numero = $request->input('numeroPessoa');
+        $end->numero = $request->input('numEndPessoa');
         $end->complemento = $request->input('complementoPessoa');
         $end->bairro = $request->input('bairroPessoa');
         $end->cep = $request->input('cepPessoa');
@@ -69,7 +68,8 @@ class ControllerPessoa extends Controller
         $pes->save();
         $pes->telefone()->save($tel);
         $pes->endereco()->save($end);
-        return view('pessoa.pessoa');
+        
+       return view('/pessoa.pessoa');
         
         /*$pes = [$tel->numero ." - ". $tel->tipo_telefone_id." - ".
                 $end->logradouro ." - ". $end->numero." - ".
@@ -117,7 +117,44 @@ class ControllerPessoa extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pes = Pessoa::find($id);
+        $tel = $pes->telefone;
+        $telefone = $tel[0];
+        $tel = Telefone::find($telefone->id);
+        $end = $pes->endereco;
+        /*
+        $pes = Pessoa::with('telefone', 'endereco')->find($id);       
+        $tel = new Telefone();
+        $end = new Endereco();
+        */
+        if (isset($pes)) {
+      
+            $pes->nome = $request->input('nomePessoa');
+            $pes->tipo_pessoa_id = $request->input('tipoPessoa');
+            $pes->cpf = $request->input('cpfPessoa');
+            $pes->RG = $request->input('RGPessoa');
+            $pes->email = $request->input('emailPessoa');
+            $pes->status = $request->input('statusPessoa');
+           
+
+            $tel->numero = $request->input('numeroPessoa');
+            $tel->tipo_telefone_id = $request->input('tipoTelPessoa');
+
+
+            $end->logradouro = $request->input('logradouroPessoa');
+            $end->numero = $request->input('numEndPessoa');
+            $end->complemento = $request->input('complementoPessoa');
+            $end->bairro = $request->input('bairroPessoa');
+            $end->cep = $request->input('cepPessoa');
+            $end->PtReferencia = $request->input('refPessoa');
+           
+            $pes->save();
+            $pes->telefone()->save($tel);
+            $pes->endereco()->save($end);
+            
+        }
+            //return $telefone;
+            return redirect('/pessoa');
     }
 
     /**

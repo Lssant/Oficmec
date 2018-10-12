@@ -16,6 +16,7 @@ class AddPessoaIdEmEndereco extends Migration
         Schema::table('enderecos', function (Blueprint $table) {
             $table->integer('pessoa_id')->unsigned();
             $table->foreign('pessoa_id')->references('id')->on('pessoas');
+            $table->primary('pessoa_id');
         });
     }
 

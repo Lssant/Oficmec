@@ -29,7 +29,7 @@
                 <label for="statusPessoa">Status</label>
                 <select class="form-control" name="statusPessoa" id="statusPessoa" >
                     <option value="OK">OK</option>
-                    <option value="OK">NOK</option>
+                    <option value="NOK">NOK</option>
                 </select>
                 <!--<input type="text" class="form-control" name="statusPessoa" id="statusPessoa" placeholder="status">-->
 
@@ -52,8 +52,8 @@
                 <label for="logradouroPessoa">Rua</label>
                 <input type="text" class="form-control" name="logradouroPessoa" value="{{$pes->endereco->logradouro}}" id="logradouroPessoa" placeholder="Rua : ...">
 
-                <label for="numeroPessoa">Numero</label>
-                <input type="text" class="form-control" name="numeroPessoa" value="{{$pes->endereco->numero}}" id="numeroPessoa" placeholder="nº ...">
+                <label for="numEndPessoa">Numero</label>
+                <input type="text" class="form-control" name="numEndPessoa" value="{{$pes->endereco->numero}}" id="numEndPessoa" placeholder="nº ...">
 
                 <label for="complementoPessoa">Complemento</label>
                 <input type="text" class="form-control" name="complementoPessoa" value="{{$pes->endereco->complemento}}" id="complementoPessoa" placeholder="ex: apartamento A bloco 3">

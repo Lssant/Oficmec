@@ -24,11 +24,13 @@
                         <td>{{$p->nome}}</td>
                         <td>{{$p->cpf}}</td>
                         <td>{{$p->status}}</td>
-                           
+                        <td>
+                            <select name="telefone" id="telefone" class="form-control form-control-sm">
                         @foreach ($p->telefone as $tel)
-                            <td>{{$tel->numero}}</td>
+                            <option value="{{$tel->id}}">{{$tel->numero}}</option>
                         @endforeach
-                           
+                            </select>
+                        </td>
                     {{--<td>{{$p->tipo_pessoa_id}}</td>
                         <td>{{$p->telefone}}</td>
                         <td>{{$p->endereco->logradouro}}</td>

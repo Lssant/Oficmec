@@ -55,8 +55,8 @@
                 <label for="logradouroPessoa">Rua</label>
                 <input type="text" class="form-control" name="logradouroPessoa" id="logradouroPessoa" placeholder="Rua : ...">
 
-                <label for="numeroPessoa">Numero</label>
-                <input type="text" class="form-control" name="numeroPessoa" id="numeroPessoa" placeholder="nº ...">
+                <label for="numEndPessoa">Numero</label>
+                <input type="text" class="form-control" name="numEndPessoa" id="numEndPessoa" placeholder="nº ...">
 
                 <label for="complementoPessoa">Complemento</label>
                 <input type="text" class="form-control" name="complementoPessoa" id="complementoPessoa" placeholder="ex: apartamento A bloco 3">

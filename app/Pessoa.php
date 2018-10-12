@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pessoa extends Model
 {
+    protected $fillable = [
+        'nome',
+        'tipo_pessoa_id',
+        'cpf',
+        'RG',
+        'email',
+        'status'
+    ];
+
     function endereco() {
         return $this->hasOne('App\Endereco');
     }
