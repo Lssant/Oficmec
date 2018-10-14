@@ -26,9 +26,9 @@
                         <td>{{$p->status}}</td>
                         <td>
                             <select name="telefone" id="telefone" class="form-control form-control-sm">
-                        @foreach ($p->telefone as $tel)
-                            <option value="{{$tel->id}}">{{$tel->numero}}</option>
-                        @endforeach
+                                @foreach ($p->telefone as $tel)
+                                    <option value="{{$tel->id}}">{{$tel->id}} - {{$tel->numero}}</option>
+                                @endforeach
                             </select>
                         </td>
                     {{--<td>{{$p->tipo_pessoa_id}}</td>
@@ -43,7 +43,7 @@
     @endforeach
                 </tbody>
             </table> 
-    @endif
+@endif
         </div>
         <div class="card-footer">
             <a href="/pessoa/novo" class="btn btn-sm btn-primary" role="button">Adicionar nova pessoa</a>

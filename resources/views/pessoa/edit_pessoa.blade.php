@@ -35,7 +35,7 @@
 
                 <label for="numeroPessoa">Telefone</label>
             @if($pes->telefone == "[]")
-                <input type="text" class="form-control" name="numeroPessoa" id="numeroPessoa" placeholder="informe o telefone para contato">
+                <input type="text" class="form-control" name="numeroPessoa" id="numeroPessoa" placeholder="Não possui telefone cadastrado">
             @else
                 @foreach ($pes->telefone as $n)
                     <input type="text" class="form-control" name="numeroPessoa" value="{{$n->numero}}" id="numeroPessoa" placeholder="informe o telefone para contato">    

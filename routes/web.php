@@ -29,6 +29,7 @@ Route::get('/pessoa', 'ControllerPessoa@index');
 Route::get('/pessoa/novo', 'ControllerPessoa@create');
 Route::post('/pessoa','ControllerPessoa@store');
 Route::get('/pessoa/editar/{id}','ControllerPessoa@edit');
+Route::get('/pessoa/apagar/{id}','ControllerPessoa@destroy');
 Route::post('/pessoa/{id}','ControllerPessoa@update');
 
 // ---- tipo pessoa

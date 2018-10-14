@@ -69,7 +69,7 @@ class ControllerPessoa extends Controller
         $pes->telefone()->save($tel);
         $pes->endereco()->save($end);
         
-       return view('/pessoa.pessoa');
+       return view('/pessoa');
         
         /*$pes = [$tel->numero ." - ". $tel->tipo_telefone_id." - ".
                 $end->logradouro ." - ". $end->numero." - ".
@@ -100,6 +100,7 @@ class ControllerPessoa extends Controller
     public function edit($id)
     {
         $pes = Pessoa::with('telefone', 'endereco')->find($id);
+        
         $tpTel = TipoTelefone::all();
         $tpPes = TipoPessoa::all();
         if(isset($pes)){
@@ -153,7 +154,7 @@ class ControllerPessoa extends Controller
             $pes->endereco()->save($end);
             
         }
-            //return $telefone;
+            //return $tel;
             return redirect('/pessoa');
     }
 
@@ -165,6 +166,17 @@ class ControllerPessoa extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pes = Pessoa::with('telefone','endereco')->find($id);
+        //$telefone = $pes->telefone;
+        //$tel = Telefone::find();
+        if (isset($pes)) {
+            //implementar ifs
+            //each itera realizando a operação
+            $pes->telefone->each->delete();
+            $pes->endereco->delete();
+            $pes->delete();
+
+        }
+        return $pes;
     }
 }
