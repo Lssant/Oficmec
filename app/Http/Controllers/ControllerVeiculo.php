@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ControladorVeiculo extends Controller
+use App\Veiculo;
+
+class ControllerVeiculo extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class ControladorVeiculo extends Controller
      */
     public function index()
     {
-        //
+        $veic = Veiculo::all();
+        return view('veiculos.veiculos', compact('veic'));
     }
 
     /**
