@@ -17,6 +17,7 @@
                         <th>Ano</th>
                         <th>Combustivel</th>
                         <th>Placa</th>
+                        <th>Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,8 +33,8 @@
 
 
                         <td>
-                        <a href="/pessoa/editar/{{$p->id}}" class="btn btn-sm btn-primary">Editar</a>
-                        <a href="/pessoa/apagar/{{$p->id}}" class="btn btn-sm btn-danger">Excluir</a>
+                        <a href="/pessoa/editar/{{$v->id}}" class="btn btn-sm btn-primary">Editar</a>
+                        <a href="/pessoa/apagar/{{$v->id}}" class="btn btn-sm btn-danger">Excluir</a>
                         </td> 
                     </tr>
     @endforeach
