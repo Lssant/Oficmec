@@ -15,7 +15,7 @@ class ControllerVeiculo extends Controller
      */
     public function index()
     {
-        $veic = Veiculo::all();
+        $veic = Veiculo::with('pessoa')->get();
         return view('veiculos.veiculos', compact('veic'));
     }
 
@@ -26,7 +26,7 @@ class ControllerVeiculo extends Controller
      */
     public function create()
     {
-        //
+        return view('veiculos.cad_veiculo');
     }
 
     /**
@@ -37,7 +37,20 @@ class ControllerVeiculo extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $veic = new Veiculo();
+
+        $veic->modelo = $request->input('modeloVeic'); 
+        $veic->marca = $request->input('marcaVeic'); 
+        $veic->cor = $request->input('corVeic'); 
+        $veic->ano = $request->input('anoVeic'); 
+        $veic->combustivel = $request->input('combustivelVeic'); 
+        $veic->placa = $request->input('placaVeic'); 
+        $veic->pessoa_id = $request->input('cliVeic'); 
+
+        $veic->save();
+
+        return redirect('/veiculos');
+
     }
 
     /**

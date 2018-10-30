@@ -22,4 +22,8 @@ class Pessoa extends Model
     function telefone() {
         return $this->hasMany('App\Telefone');
     }
+
+    function veiculo(){
+        return $this->hasMany('App\Veiculo');
+    }
 }

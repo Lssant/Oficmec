@@ -14,4 +14,8 @@ class Veiculo extends Model
         'combustivel',
         'placa'
     ];
+
+    function pessoa(){
+        return $this->belongsTo('App\Pessoa');
+    }
 }

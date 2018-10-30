@@ -11,8 +11,9 @@
                 <thead>
                     <tr>
                         <th>Código</th>
-                        <th>Marca</th>
                         <th>Modelo</th>
+                        <th>Cliente</th>
+                        <th>Marca</th>
                         <th>Cor</th>
                         <th>Ano</th>
                         <th>Combustivel</th>
@@ -24,8 +25,9 @@
     @foreach ($veic as $v)
                     <tr>
                         <td>{{$v->id}}</td>
-                        <td>{{$v->marca}}</td>
                         <td>{{$v->modelo}}</td>
+                        <td>{{$v->pessoa->nome}}</td>
+                        <td>{{$v->marca}}</td>
                         <td>{{$v->cor}}</td>
                         <td>{{$v->ano}}</td>
                         <td>{{$v->combustivel}}</td>
@@ -43,7 +45,7 @@
 @endif
         </div>
         <div class="card-footer">
-            <a href="/pessoa/novo" class="btn btn-sm btn-primary" role="button">Adicionar nova pessoa</a>
+            <a href="/veiculos/novo" class="btn btn-sm btn-primary" role="button">Adicionar veiculo</a>
         </div>
     </div>
 

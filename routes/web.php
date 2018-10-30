@@ -35,6 +35,9 @@ Route::post('/pessoa/{id}','ControllerPessoa@update');
 
 Route::group(['prefix' => 'veiculos'], function () {
     Route::get('/', 'ControllerVeiculo@index');
+    Route::get('/novo', 'ControllerVeiculo@create');
+    Route::post('/veiculos','ControllerVeiculo@store');
+
 });
 
 // ---- tipo pessoa
