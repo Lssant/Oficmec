@@ -42,6 +42,16 @@ Route::group(['prefix' => 'veiculos'], function () {
     Route::get('/apagar/{id}','ControllerVeiculo@destroy');
 
 });
+// ----- Peças
+
+    Route::group(['prefix' => 'pecas'], function (){
+        Route::get('/', 'ControllerPeca@index');
+        Route::get('/novo', 'ControllerPeca@create');
+        Route::post('/pecas','ControllerPeca@store');
+        Route::get('/editar/{id}','ControllerPeca@edit');
+        Route::post('/{id}','ControllerPeca@update');
+        Route::get('/apagar/{id}','ControllerPeca@destroy');
+    });
 
 // ---- tipo pessoa
 
