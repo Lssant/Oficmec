@@ -177,6 +177,6 @@ class ControllerPessoa extends Controller
             $pes->delete();
 
         }
-        return $pes;
+        return redirect('/pessoa');
     }
 }

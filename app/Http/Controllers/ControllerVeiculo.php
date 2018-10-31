@@ -72,7 +72,11 @@ class ControllerVeiculo extends Controller
      */
     public function edit($id)
     {
-        //
+        $veic = Veiculo::find($id);
+
+        if(isset($veic)){
+            return view('veiculos.edit_veiculo',compact('veic'));
+        }
     }
 
     /**
@@ -84,7 +88,21 @@ class ControllerVeiculo extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $veic = Veiculo::find($id);
+
+        if (isset($veic)){
+            $veic->modelo = $request->input('modeloVeic'); 
+            $veic->marca = $request->input('marcaVeic'); 
+            $veic->cor = $request->input('corVeic'); 
+            $veic->ano = $request->input('anoVeic'); 
+            $veic->combustivel = $request->input('combustivelVeic'); 
+            $veic->placa = $request->input('placaVeic'); 
+            $veic->pessoa_id = $request->input('cliVeic');
+
+            $veic->save();
+
+            return redirect('/veiculos');
+        }
     }
 
     /**
@@ -95,6 +113,12 @@ class ControllerVeiculo extends Controller
      */
     public function destroy($id)
     {
-        //
+        $veic = Veiculo::find($id);
+
+        if (isset($veic)){
+            $veic->delete();
+        }
+        return redirect('/veiculos');
+
     }
 }

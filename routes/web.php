@@ -37,6 +37,9 @@ Route::group(['prefix' => 'veiculos'], function () {
     Route::get('/', 'ControllerVeiculo@index');
     Route::get('/novo', 'ControllerVeiculo@create');
     Route::post('/veiculos','ControllerVeiculo@store');
+    Route::get('/editar/{id}','ControllerVeiculo@edit');
+    Route::post('/{id}','ControllerVeiculo@update');
+    Route::get('/apagar/{id}','ControllerVeiculo@destroy');
 
 });
 

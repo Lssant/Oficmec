@@ -21,9 +21,11 @@
                 <input type="text" class="form-control" name="anoVeic" id="anoVeic" placeholder="informe o ano do veículo">
 
                 <label for="combustivelVeic">Combustível</label>
-                <select class="form-control" name="combustivelVeic" id="combustivelVeic" >
+                <select class="form-control" name="combustivelVeic" id="combustivelVeic">
+                    <option value=""></option>
                     <option value="gasolina">Gasolina</option>
                     <option value="etanol">Etanol</option>
+                    <option value="flex">Flex</option>
                     <option value="diesel">Diesel</option>
                     <option value="gas">Gás</option>
                 </select>

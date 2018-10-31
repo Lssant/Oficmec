@@ -35,8 +35,8 @@
 
 
                         <td>
-                        <a href="/pessoa/editar/{{$v->id}}" class="btn btn-sm btn-primary">Editar</a>
-                        <a href="/pessoa/apagar/{{$v->id}}" class="btn btn-sm btn-danger">Excluir</a>
+                        <a href="/veiculos/editar/{{$v->id}}" class="btn btn-sm btn-primary">Editar</a>
+                        <a href="/veiculos/apagar/{{$v->id}}" class="btn btn-sm btn-danger">Excluir</a>
                         </td> 
                     </tr>
     @endforeach
