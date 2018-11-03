@@ -20,8 +20,15 @@ class DatabaseSeeder extends Seeder
         $this->call(TelefoneSeeder::class);
         $this->call(EnderecoSeeder::class);
         $this->call(VeiculoSeeder::class);
-        */
         $this->call(PecaSeeder::class);
+        $this->call(ServicoSeeder::class);
+        $this->call(PessoaServicoSeeder::class);
+
+        
+        */
+        $this->call(PecaServicoSeeder::class);
+
+
 
     }
 }

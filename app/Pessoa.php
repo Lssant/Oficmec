@@ -26,4 +26,8 @@ class Pessoa extends Model
     function veiculo(){
         return $this->hasMany('App\Veiculo');
     }
+    //primeiro parametro nome do model segundo nome da tabela
+    function servicos(){
+        return $this->belongsToMany("App\Servico","pessoa_servicos");
+    }
 }

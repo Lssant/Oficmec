@@ -18,4 +18,7 @@ class Veiculo extends Model
     function pessoa(){
         return $this->belongsTo('App\Pessoa');
     }
+    function servico(){
+        return $this->hasMany('App\Servico');
+    }
 }

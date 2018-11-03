@@ -4,12 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Servico;
-use App\Veiculo;
-use App\Pessoa;
-use App\Peca;
-
-class ControllerServico extends Controller
+class ControllerPessoaServico extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +13,7 @@ class ControllerServico extends Controller
      */
     public function index()
     {
-        $serv = Servico::with('veiculo','pessoa','peca')->get();
-        return view('servicos.servicos', compact('serv'));
+        //
     }
 
     /**

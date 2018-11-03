@@ -12,4 +12,9 @@ class Peca extends Model
         'quantidade',
         'valor'
     ];
+
+    //primeiro parametro nome do model segundo nome da tabela
+    function servicos(){
+        return $this->belongsToMany("App\Servico","peca_servicos")->withPivot('valor_un','quantidade');
+    }
 }

@@ -17,6 +17,7 @@ class CreateServicosTable extends Migration
             $table->increments('id');
             $table->string('diagnostico');
             $table->string('descricao');
+            $table->decimal('mao_obra');
             $table->string('forma_pgto');
             $table->decimal('total');
             $table->decimal('pago');

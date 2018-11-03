@@ -1,5 +1,6 @@
 <?php
 
+//utilizado paraa alguns testes somente
 use App\TipoPessoa;
 use App\TipoTelefone;
 use App\Endereco;
@@ -7,21 +8,7 @@ use App\Pessoa;
 use App\Telefone;
 
 
-
-Route::get('/', function () {
-    return view('index');
-});
-
-Route::get('/clientes','ControladorCliente@index');
-Route::get('/contato','ControladorContato@index');
-
-Route::get('/clientes/novo', 'ControladorCliente@create');
-Route::post('/clientes', 'ControladorCliente@store');
-Route::get('/clientes/apagar/{id}','ControladorCliente@destroy');
-Route::get('/clientes/editar/{id}','ControladorCliente@edit');
-Route::post('/clientes/{id}','ControladorCliente@update');
-
-Route::get('/produtos', 'ControladorProduto@indexView');
+// Rotas
 
 // ----- Pessoa
 
@@ -52,6 +39,18 @@ Route::group(['prefix' => 'veiculos'], function () {
         Route::post('/{id}','ControllerPeca@update');
         Route::get('/apagar/{id}','ControllerPeca@destroy');
     });
+
+// ----- Serviços
+
+Route::group(['prefix' => 'servicos'], function(){
+    Route::get('/','ControllerServico@index');
+    Route::get('/novo', 'ControllerServico@create');
+    Route::post('/servicos','ControllerServico@store');
+    Route::get('/editar/{id}','ControllerServico@edit');
+    Route::post('/{id}','ControllerServico@update');
+    Route::get('/apagar/{id}','ControllerServico@destroy');
+
+});
 
 // ---- tipo pessoa
 
@@ -137,3 +136,18 @@ Route::get('/testetipotelefone', function () {
         echo "</tr>";  
     }
 });
+
+Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/clientes','ControladorCliente@index');
+Route::get('/contato','ControladorContato@index');
+
+Route::get('/clientes/novo', 'ControladorCliente@create');
+Route::post('/clientes', 'ControladorCliente@store');
+Route::get('/clientes/apagar/{id}','ControladorCliente@destroy');
+Route::get('/clientes/editar/{id}','ControladorCliente@edit');
+Route::post('/clientes/{id}','ControladorCliente@update');
+
+Route::get('/produtos', 'ControladorProduto@indexView');
