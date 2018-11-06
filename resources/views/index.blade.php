@@ -1,7 +1,20 @@
 @extends('layout.app', ["current" =>"home"])
 
 @section('body')
+<div class="card border">
+            <div class="card-body">
+                 <form action="pessoa/buscar" method="GET" class="form form-inline">
+                 <!--@csrf-->
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="serv" name="serv"  placeholder="pesquisar id servico">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sn">Pesquisar</button>
+                </form>
+            </div>
+        </div>
+
     <div class="jumbotron bg-ligth border border-secondary rounded">
+
         <!--
         <div class="cols">
                 <ul class="nav nav-tabs">

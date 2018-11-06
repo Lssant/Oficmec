@@ -23,6 +23,14 @@ class ControllerPessoa extends Controller
         return view('pessoa.pessoa', compact('pes'));
     }
 
+    public function buscar(Request $request){
+
+        //mudar serv depois de definir pagina correta
+        $nome = $request->serv;
+        $pes = Pessoa::where('nome','like',"%{$nome}%")->get();
+
+        return view('pessoa.pessoa',compact('pes'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -88,7 +96,11 @@ class ControllerPessoa extends Controller
      */
     public function show($id)
     {
-        //
+
+        $pes = Pessoa::with('telefone', 'endereco', 'veiculo')->where('id','=',"{$id}")->first();
+
+      
+        return view('pessoa.mostrar_pessoa', compact('pes'));
     }
 
     /**
@@ -178,5 +190,10 @@ class ControllerPessoa extends Controller
 
         }
         return redirect('/pessoa');
+    }
+
+    public function teste(Request $request){
+
+        return $request;
     }
 }

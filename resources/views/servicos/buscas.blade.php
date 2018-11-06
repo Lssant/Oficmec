@@ -1,4 +1,4 @@
-@extends('layout.app', ["current" => "servico"])
+@extends('layout.app', ["current" =>"servico"])
 
 @section('body')
 
@@ -7,24 +7,23 @@
         <div class="card-body">
             <h5 class="card-title">Registro de Serviços</h5>
 @if(count($serv) > 0)
-            <div class="table-responsive-sm">
             <table class="table table-ordered table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Código</th>
-                        <th scope="col">Diagnostico</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Mão de Obra</th>
-                        <th scope="col" >Forma de Pagamento</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">Pago</th>
-                        <th scope="col">Veículo</th>
-                        <th scope="col">Ação</th>
+                        <th>Código</th>
+                        <th>Diagnostico</th>
+                        <th>Descrição</th>
+                        <th>Mão de Obra</th>
+                        <th>Forma de Pagamento</th>
+                        <th>Total</th>
+                        <th>Pago</th>
+                        <th>Veículo</th>
+                        <th>Ação</th>
                     </tr>
                 </thead>
                 <tbody>
     @foreach ($serv as $s)
-                    <tr scope="row">
+                    <tr>
                         <td>{{$s->id}}</td>
                         <td>{{$s->diagnostico}}</td>
                         <td>{{$s->descricao}}</td>
@@ -42,8 +41,7 @@
                     </tr>
     @endforeach
                 </tbody>
-            </table>
-            </div> 
+            </table> 
 @endif
         </div>
         <div class="card-footer">

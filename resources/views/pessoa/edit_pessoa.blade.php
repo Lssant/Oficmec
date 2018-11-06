@@ -8,7 +8,7 @@
             @csrf
             <div class="form-group">
                 <label for="nomePessoa">Nome</label>
-                <input type="text" class="form-control" name="nomePessoa" value="{{$pes->nome}}" id="nomePessoa" placeholder=" digite o nome da pessoa">
+                <input type="text" class="form-control form-control-sm" name="nomePessoa" value="{{$pes->nome}}" id="nomePessoa" placeholder=" digite o nome da pessoa">
 
                 <label for="tipoPessoa">Categoria</label>
                 <select class="form-control" name="tipoPessoa" id="tipoPessoa">

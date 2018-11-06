@@ -18,6 +18,15 @@ Route::post('/pessoa','ControllerPessoa@store');
 Route::get('/pessoa/editar/{id}','ControllerPessoa@edit');
 Route::get('/pessoa/apagar/{id}','ControllerPessoa@destroy');
 Route::post('/pessoa/{id}','ControllerPessoa@update');
+Route::get('/pessoa/buscar/','ControllerPessoa@buscar');
+Route::get('/pessoa/cliente/{id}','ControllerPessoa@show');
+
+
+
+Route::get('/pessoa/teste','ControllerPessoa@teste');
+
+
+
 // ---- Veiculos
 
 Route::group(['prefix' => 'veiculos'], function () {
@@ -45,10 +54,16 @@ Route::group(['prefix' => 'veiculos'], function () {
 Route::group(['prefix' => 'servicos'], function(){
     Route::get('/','ControllerServico@index');
     Route::get('/novo', 'ControllerServico@create');
-    Route::post('/servicos','ControllerServico@store');
+    Route::post('/servico','ControllerServico@store');
     Route::get('/editar/{id}','ControllerServico@edit');
     Route::post('/{id}','ControllerServico@update');
     Route::get('/apagar/{id}','ControllerServico@destroy');
+
+    Route::get('/pesquisar','ControllerServico@buscar');
+
+    //Route::get('/buscas','ControllerServico@buscas');
+    Route::post('/pesquisar','ControllerServico@buscar');
+
 
 });
 

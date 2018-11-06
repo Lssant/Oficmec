@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 use App\Servico;
 use App\Veiculo;
 use App\Pessoa;
@@ -19,7 +20,27 @@ class ControllerServico extends Controller
     public function index()
     {
         $serv = Servico::with('veiculo','pessoa','peca')->get();
+        //$serv = Servico::where('id','=',1)->get();
         return view('servicos.servicos', compact('serv'));
+    }
+
+    public function buscar(Request $request)
+    {
+        
+        $id = $request->serv;
+
+        $serv = Servico::where('id','=',"{$id}")->get();
+        //$serv = Servico::where('diagnostico','like',"%{$diag}%")->get();
+
+        return view('servicos.buscas', compact('serv'));
+
+        //$serv = Servico::where('id','=',"%{$busca}%")->get();
+        //return view('servicos.servicos');
+        //return redirect('/servicos/buscas',compact('serv'));
+        
+    }
+    public function buscas(){
+
     }
 
     /**
@@ -27,9 +48,14 @@ class ControllerServico extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $idCli = $request->idCli;
+        $idVeic = $request->idVeic;
+
+        //return $idCli." ".$idVeic;
+        return view('servicos.cad_servico');
+
     }
 
     /**

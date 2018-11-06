@@ -36,8 +36,9 @@
                         <td>{{$p->endereco->logradouro}}</td>
                      --}}
                         <td>
-                        <a href="/pessoa/editar/{{$p->id}}" class="btn btn-sm btn-primary">Editar</a>
-                        <a href="/pessoa/apagar/{{$p->id}}" class="btn btn-sm btn-danger">Excluir</a>
+                        <a href="/pessoa/cliente/{{$p->id}}" class="btn btn-sm btn-outline-success">Exibir</a>
+                        <a href="/pessoa/editar/{{$p->id}}" class="btn btn-sm btn-outline-warning">Editar</a>
+                        <a href="/pessoa/apagar/{{$p->id}}" class="btn btn-sm btn-outline-danger">Apagar</a>
                         </td> 
                     </tr>
     @endforeach
