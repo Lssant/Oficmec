@@ -53,8 +53,16 @@ class ControllerServico extends Controller
         $idCli = $request->idCli;
         $idVeic = $request->idVeic;
 
-        //return $idCli." ".$idVeic;
-        return view('servicos.cad_servico');
+        $cliente = Pessoa::with('veiculo')->where('id','=',"{$idCli}")->first();
+        
+        
+        foreach($cliente->veiculo as $v)
+            if ($v->id == $idVeic)
+                $veiculo = $v;
+        //return $veiculo."<BR>".$cliente;
+
+
+        return view('servicos.cad_servico',compact('cliente','veiculo'));
 
     }
 
@@ -66,7 +74,18 @@ class ControllerServico extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $servico = new Servico();
+
+        $servico->diagnostico = $request->input('diagnostico');
+        $servico->descricao = $request->input('descricao');
+        $servico->mao_obra = $request->input('maoObra');
+        $servico->forma_pgto = $request->input('formaPagamento');
+        $servico->total = $request->input('total');
+        $servico->pago = $request->input('pago');
+        $servico->veiculo_id = $request->input('idVeic');
+        $servico->save();
+
+        return $servico->id."  <- id do serviço ";
     }
 
     /**

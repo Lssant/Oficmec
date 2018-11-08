@@ -4,27 +4,31 @@
     
 <div class="card border">
     <div class="card-body">
-        <h5 class="card-title">Cliente - {{$pes->id}}</h5>
+        <h5 class="card-title">Cliente </h5>
             
         <form action="/servicos/novo" method="GET">
         <div class="form-row">
-            <div class="form-group col-md-8">
-                <label for="inputEmail4">Nome</label>
+            <div class="form-group col-md-1">
+                <label for="idCli">Código</label>
                 <input type="text" class="form-control" name="idCli" value="{{$pes->id}}" id="nome" placeholder="nome" readonly>
             </div>
+            <div class="form-group col-md-6">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" value="{{$pes->nome}}" id="nome" placeholder="nome" readonly>
+            </div>
         
-                <div class="form-group col-md-4">
-                    <label for="inputEmail">CPF</label>
+                <div class="form-group col-md-5">
+                    <label for="cpf">CPF</label>
                     <input type="text" class="form-control" value="{{$pes->cpf}}"  id="cpf" placeholder="cpf" readonly>
                 </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-8">
-                <label for="inputEmail">E-mail</label>
+                <label for="email">E-mail</label>
                 <input type="text" class="form-control" value="{{$pes->email}}" id="email" placeholder="E-mail" readonly>
             </div>
             <div class="form-group col-md-4">
-                    <label for="inputPassword4">RG</label>
+                    <label for="RG">RG</label>
                     <input type="text" class="form-control" value="{{$pes->RG}}" id="RG" placeholder="RG" readonly>
                 </div>
         </div>
@@ -47,30 +51,30 @@
         <h5>Endereço</h5>
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="inputEmail">Bairro</label>
-                <input type="text" class="form-control" value="{{$pes->endereco->bairro}}" id="Nome" placeholder="Bairro" readonly>
+                <label for="bairro">Bairro</label>
+                <input type="text" class="form-control" value="{{$pes->endereco->bairro}}" id="bairro" placeholder="Bairro" readonly>
             </div>
             <div class="form-group col-md-6">
-                <label for="inputEmail">Rua</label>
-                <input type="text" class="form-control" value="{{$pes->endereco->logradouro}}" id="Nome" placeholder="Rua" readonly>
+                <label for="logradouro">Rua</label>
+                <input type="text" class="form-control" value="{{$pes->endereco->logradouro}}" id="logradouro" placeholder="Rua" readonly>
             </div>
             <div class="form-group col-md-2">
-                <label for="inputEmail">número</label>
-                <input type="text" class="form-control" value="{{$pes->endereco->numero}}" id="Nome" placeholder="número" readonly>
+                <label for="numero">número</label>
+                <input type="text" class="form-control" value="{{$pes->endereco->numero}}" id="numero" placeholder="Número" readonly>
             </div>
         </div>
         <div class="form-row">
             
             <div class="form-group col-md-4">
-                <label for="inputEmail">CEP</label>
-                <input type="text" class="form-control" value="{{$pes->endereco->cep}}" id="Nome" placeholder="CEP" readonly>
+                <label for="cep">CEP</label>
+                <input type="text" class="form-control" value="{{$pes->endereco->cep}}" id="cep" placeholder="CEP" readonly>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputEmail">Complemento</label>
-                <input type="text" class="form-control" value="{{$pes->endereco->complemento}}" id="Nome" placeholder="Complemento" readonly>
+                <label for="complemento">Complemento</label>
+                <input type="text" class="form-control" value="{{$pes->endereco->complemento}}" id="complemento" placeholder="Complemento" readonly>
             </div>
             <div class="form-group col-md-4">
-                <label for="inputEmail">Ponto de Referência</label>
+                <label for="PtReferencia">Ponto de Referência</label>
                 <input type="text" class="form-control"  id="PtReferencia" value="{{$pes->endereco->PtReferencia}}"  placeholder="Ponto de Referência" readonly>
             </div>
         </div>
