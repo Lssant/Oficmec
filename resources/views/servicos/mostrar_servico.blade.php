@@ -10,7 +10,7 @@
             @csrf
             <div class="form-group">
 
-                <h6 class="card-title">Informações do cliente:</h6>
+                <p><h6 class="card-title">Informações do cliente:</h6></p>
                 <div class="form-row">
 <!-- infos basicas para serviço-->
                     <div class="form-group col-md-1">
@@ -37,7 +37,7 @@
                     </div>
                 </div>
         <!--veículo -->
-        <h6 class="card-title">Informações do Veículo:</h6>
+        <p><h6 class="card-title">Informações do Veículo:</h6></p>
                 <div class="form-row">
                     <div class="form-group col-md-1">
                         <label for="idVeic">Cód</label>
@@ -58,7 +58,7 @@
                     </div>
                 </div>
 <!-- cadastro de serviço -->
-        <h6 class="card-title">Informações do Serviço:</h6>
+       <p> <h6 class="card-title">Informações do Serviço:</h6></p>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="diagnostico">Diagnostico</label>
@@ -92,25 +92,44 @@
                     
                     </div>
                 </div>
-                <h5 class="card-title">(mostrar  em show servicos)Pagamentos - </h5>
-            
-                <!-- -->
-
+            <!-- -->
                 <p>
-                    <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        Mostrar Peças utilizadas
-                    </button>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapsePagamento" aria-expanded="false" aria-controls="collapseExample">
+                                Pagamentos Realizados
+                            </button>
+                        </div> 
+                        <div class="col"> 
+                            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapsePecas" aria-expanded="false" aria-controls="collapseExample">
+                                Peças utilizadas
+                            </button>
+                        </div>
+                    </div>
                 </p>
-                    <div class="collapse" id="collapseExample">
-                        <div class="card card-body">
-                        @foreach($servico->peca as $p)
-                                <label for="inputEmail">{{$p->nome}} - Descrição:  {{$p->descricao}} - Quantidade: {{$p->pivot->quantidade}}</label>
-                        @endforeach       
+
+                <div class="row">
+                    <div class="col">
+                        <div class="collapse" id="collapsePagamento">
+                             <div class="card card-body">
+
+                                <label for="inputEmail">Pagamento</label>
+
+                            </div>
                         </div>
                     </div>
 
-                <!-- -->
-
+                    <div class="col">
+                        <div class="collapse" id="collapsePecas">
+                            <div class="card card-body">
+                                @foreach($servico->peca as $p)
+                                    <label for="inputEmail">{{$p->nome}} - Descrição:  {{$p->descricao}} - Quantidade: {{$p->pivot->quantidade}}</label>
+                                @endforeach       
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- -->
             </div>
             <button type="submit" class="btn btn-primary btn-sn">Salvar</button>
             <button type="cancel" class="btn btn-danger btn-sa">cancel</button>
