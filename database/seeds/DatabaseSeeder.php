@@ -23,10 +23,11 @@ class DatabaseSeeder extends Seeder
         $this->call(PecaSeeder::class);
         $this->call(ServicoSeeder::class);
         $this->call(PessoaServicoSeeder::class);
+        $this->call(PecaServicoSeeder::class);
 
         
         */
-        $this->call(PecaServicoSeeder::class);
+        $this->call(PagamentoSeeder::class);
 
 
 
