@@ -85,7 +85,10 @@ class ControllerServico extends Controller
         $servico->veiculo_id = $request->input('idVeic');
         $servico->save();
 
-        return $servico->id."  <- id do serviço ";
+        $servico->pessoa()->attach($request->cliId);
+
+       
+        //return $servico->id."  <- id do serviço ";
     }
 
     /**
@@ -95,8 +98,23 @@ class ControllerServico extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {        
+        $servico = Servico::with('pessoa','veiculo','peca')->where('id','=',"{$id}")->first();
+
+        //com mais de uma pessoa no servico vai dar erro aki
+        foreach($servico->pessoa as $c)
+            $cliente = $c;
+    
+        foreach($servico->peca as $p)
+            $pecas = $p;
+
+            $veiculo = $servico->veiculo;
+        
+            //return $cliente.'<BR>'.$veiculo.'<BR>'.$pecas;
+            
+        //return $servico;
+        
+        return view ('servicos.mostrar_servico', compact('servico','cliente','veiculo','pecas'));
     }
 
     /**

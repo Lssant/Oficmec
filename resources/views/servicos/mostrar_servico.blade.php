@@ -4,7 +4,7 @@
 
 <div class="card border">
     <div class="card-body">
-        <h5 class="card-title">Solicitação de Serviço </h5>
+        <h5 class="card-title">Serviço - {{$servico->id}}</h5>
 
         <form action="/servicos/servico" method="POST">
             @csrf
@@ -58,33 +58,33 @@
                     </div>
                 </div>
 <!-- cadastro de serviço -->
-        <h6 class="card-title">Criar Serviço:</h6>
+        <h6 class="card-title">Informações do Serviço:</h6>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="diagnostico">Diagnostico</label>
-                        <input type="text" class="form-control form-control-sm" name="diagnostico" id="diagnostico" placeholder="Serviço Solicitado ou Constatado" >
+                        <input type="text" class="form-control form-control-sm" value="{{$servico->diagnostico}}" name="diagnostico" id="diagnostico" placeholder="Serviço Solicitado ou Constatado" readonly>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="descricao">Descrição</label>
-                        <input type="text" class="form-control form-control-sm" name="descricao" id="descricao" placeholder="Descrição e observações" >
+                        <input type="text" class="form-control form-control-sm" value="{{$servico->descricao}}" name="descricao" id="descricao" placeholder="Descrição e observações" readonly>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="formaPagamento">Forma de pagamento</label>
-                        <input type="text" class="form-control form-control-sm" name="formaPagamento" id="formaPagamento" placeholder="Forma de Pagamento" >
+                        <input type="text" class="form-control form-control-sm" value="{{$servico->forma_pgto}}" name="formaPagamento" id="formaPagamento" placeholder="Forma de Pagamento" readonly>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="maoObra">Mão de obra</label>
-                        <input type="text" class="form-control form-control-sm" name="maoObra" id="maoObra" placeholder="Valor da Mão de Obra" >
+                        <input type="text" class="form-control form-control-sm" value="{{$servico->mao_obra}}" name="maoObra" id="maoObra" placeholder="Valor da Mão de Obra" readonly>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="total">Total</label>
-                        <input type="text" class="form-control form-control-sm" name="total" id="total" placeholder="Valor Total do Serviço" >
+                        <input type="text" class="form-control form-control-sm" value="{{$servico->total}}"name="total" id="total" placeholder="Valor Total do Serviço" readonly>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="pago">Pago</label>
-                        <input type="text" class="form-control form-control-sm" name="pago" id="pago" placeholder="Valor Pago" >
+                        <label for="pago">Total pago</label>
+                        <input type="text" class="form-control form-control-sm" value="{{$servico->pago}}"name="pago" id="pago" placeholder="Valor Pago" readonly>
                     </div>
                 </div>
                 <div class="form-row">
@@ -98,14 +98,14 @@
 
                 <p>
                     <button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        Mostrar Pagamentos
+                        Mostrar Peças utilizadas
                     </button>
                 </p>
                     <div class="collapse" id="collapseExample">
                         <div class="card card-body">
-                            
-                                <label for="inputEmail">pagamento</label>
-                           
+                        @foreach($servico->peca as $p)
+                                <label for="inputEmail">{{$p->nome}} - Descrição:  {{$p->descricao}} - Quantidade: {{$p->pivot->quantidade}}</label>
+                        @endforeach       
                         </div>
                     </div>
 

@@ -28,8 +28,8 @@
                         <td>{{$p->valor}}</td>
 
                         <td>
-                        <a href="/pecas/editar/{{$p->id}}" class="btn btn-sm btn-primary">Editar</a>
-                        <a href="/pecas/apagar/{{$p->id}}" class="btn btn-sm btn-danger">Excluir</a>
+                        <a href="/pecas/editar/{{$p->id}}" class="btn btn-sm btn-outline-warning">Editar</a>
+                        <a href="/pecas/apagar/{{$p->id}}" class="btn btn-sm btn-outline-danger">Excluir</a>
                         </td> 
                     </tr>
     @endforeach
