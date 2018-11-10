@@ -9,6 +9,8 @@ use App\Servico;
 use App\Veiculo;
 use App\Pessoa;
 use App\Peca;
+use App\Pagamento;
+
 
 class ControllerServico extends Controller
 {
@@ -99,7 +101,7 @@ class ControllerServico extends Controller
      */
     public function show($id)
     {        
-        $servico = Servico::with('pessoa','veiculo','peca')->where('id','=',"{$id}")->first();
+        $servico = Servico::with('pessoa','veiculo','peca','pagamento')->where('id','=',"{$id}")->first();
 
         //com mais de uma pessoa no servico vai dar erro aki
         foreach($servico->pessoa as $c)
@@ -112,7 +114,7 @@ class ControllerServico extends Controller
         
             //return $cliente.'<BR>'.$veiculo.'<BR>'.$pecas;
             
-        //return $servico;
+        //return $servico->pagamento;
         
         return view ('servicos.mostrar_servico', compact('servico','cliente','veiculo','pecas'));
     }

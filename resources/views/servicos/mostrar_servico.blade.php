@@ -6,7 +6,7 @@
     <div class="card-body">
         <h5 class="card-title">Serviço - {{$servico->id}}</h5>
 
-        <form action="/servicos/servico" method="POST">
+        <form>
             @csrf
             <div class="form-group">
 
@@ -112,9 +112,9 @@
                     <div class="col">
                         <div class="collapse" id="collapsePagamento">
                              <div class="card card-body">
-
-                                <label for="inputEmail">Pagamento</label>
-
+                                @foreach($servico->pagamento as $index=>$pag)
+                                    <label for="inputEmail">{{$index=+1}} - {{$pag->descricao}} - {{$pag->valor}}</label>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -122,8 +122,8 @@
                     <div class="col">
                         <div class="collapse" id="collapsePecas">
                             <div class="card card-body">
-                                @foreach($servico->peca as $p)
-                                    <label for="inputEmail">{{$p->nome}} - Descrição:  {{$p->descricao}} - Quantidade: {{$p->pivot->quantidade}}</label>
+                                @foreach($servico->peca as $index=>$p)
+                                    <label for="inputEmail">{{$index=+1}} - {{$p->nome}} - Descrição:  {{$p->descricao}} - Quantidade: {{$p->pivot->quantidade}}</label>
                                 @endforeach       
                             </div>
                         </div>

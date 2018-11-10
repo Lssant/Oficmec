@@ -4,8 +4,22 @@
 
 
     <div class="card border">
-        <div class="card-body">
-            <h5 class="card-title">Registro de Serviços</h5>
+        <div class="card-body row">
+                <div class="col-md-9">
+                    <h5 class="card-title">Registro de Serviços</h5>
+                </div>
+                
+                <div class="col-md-3">
+                <form action="servicos/pesquisar" method="GET" class="form form-inline">
+                    <!--@csrf-->
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="serv" name="serv"  placeholder="código do serviço">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sn">Pesquisar</button>
+                    </form>
+                </div>
+        </div>
+
 @if(count($serv) > 0)
             <div class="table-responsive-sm">
             <table class="table table-ordered table-hover">

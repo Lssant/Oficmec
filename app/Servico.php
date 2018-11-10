@@ -21,6 +21,10 @@ class Servico extends Model
         return $this->belongsTo('App\Veiculo');
     }
 
+    function pagamento(){
+        return $this->hasMany('App\Pagamento');
+    }
+
     //primeiro parametro nome do model segundo nome da tabela
     function pessoa(){
         return $this->belongsToMany('App\Pessoa','pessoa_servicos');
