@@ -67,6 +67,13 @@ Route::group(['prefix' => 'servicos'], function(){
 
 
 });
+// ---- Pagamento
+
+Route::group(['prefix' => 'pagamentos'], function(){
+
+    Route::get('/{id}','ControllerPagamento@create');
+    Route::post('/pagamento','ControllerPagamento@store');
+});
 
 // ---- tipo pessoa
 

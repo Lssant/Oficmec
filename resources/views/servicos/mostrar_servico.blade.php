@@ -96,12 +96,12 @@
                 <p>
                     <div class="row">
                         <div class="col">
-                            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapsePagamento" aria-expanded="false" aria-controls="collapseExample">
+                            <button class="btn btn-sm btn-info" type="button" data-toggle="collapse" data-target="#collapsePagamento" aria-expanded="false" aria-controls="collapseExample">
                                 Pagamentos Realizados
                             </button>
                         </div> 
                         <div class="col"> 
-                            <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapsePecas" aria-expanded="false" aria-controls="collapseExample">
+                            <button class="btn btn-sm btn-info" type="button" data-toggle="collapse" data-target="#collapsePecas" aria-expanded="false" aria-controls="collapseExample">
                                 Peças utilizadas
                             </button>
                         </div>
@@ -131,8 +131,9 @@
                 </div>
             <!-- -->
             </div>
-            <button type="submit" class="btn btn-primary btn-sn">Salvar</button>
-            <button type="cancel" class="btn btn-danger btn-sa">cancel</button>
+            <a href="/pagamentos/{{$servico->id}}" class="btn btn-sm btn-primary">Realizar Pagamento</a>
+
+
         </form>
     </div>
 </div>

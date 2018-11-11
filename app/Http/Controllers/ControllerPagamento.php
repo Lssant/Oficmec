@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Pagamento;
+
 class ControllerPagamento extends Controller
 {
     /**
@@ -15,15 +17,15 @@ class ControllerPagamento extends Controller
     {
         //
     }
-
+   
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        return view('pagamentos.pagar',compact('id'));
     }
 
     /**
@@ -34,7 +36,13 @@ class ControllerPagamento extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pagamento = new Pagamento();
+
+        $pagamento->descricao = $request->input('descricao');
+        $pagamento->valor = $request->input('valor');
+        $pagamento->servico_id = $request->input('idServ');
+        $pagamento->save();
+        return redirect('servicos');
     }
 
     /**
