@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Peca extends Model
 {
+    protected $primaryKey = 'id';
+
     protected $fillable =[
         'nome',
         'descricao',

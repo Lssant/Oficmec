@@ -112,9 +112,25 @@
                     <div class="col">
                         <div class="collapse" id="collapsePagamento">
                              <div class="card card-body">
-                                @foreach($servico->pagamento as $index=>$pag)
-                                    <label for="inputEmail">{{$index=+1}} - {{$pag->descricao}} - {{$pag->valor}}</label>
-                                @endforeach
+                             <table class="table table-ordered table-hover table-sm">
+                                <thead>
+                                    <th></th>
+                                    <th>Descrição</th>
+                                    <th>Valor</th>
+                                    <th>Excluir</th>
+                                </thead>
+                                <tbody>
+                                    @foreach($servico->pagamento as $i=>$pag)
+                                        <tr>
+                                            <td>{{$i+=1}}</td> 
+                                            <td>{{$pag->descricao}}</td> 
+                                            <td>{{$pag->valor}}</td>
+                                            <td><a href="/pagamentos/excluir/{{$pag->id}}" class="btn btn-outline-danger btn-sm">Excluir</a></td>
+ 
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>    
                             </div>
                         </div>
                     </div>
@@ -122,17 +138,42 @@
                     <div class="col">
                         <div class="collapse" id="collapsePecas">
                             <div class="card card-body">
-                                @foreach($servico->peca as $index=>$p)
-                                    <label for="inputEmail">{{$index=+1}} - {{$p->nome}} - Descrição:  {{$p->descricao}} - Quantidade: {{$p->pivot->quantidade}}</label>
-                                @endforeach       
+                            <table class="table table-ordered table-hover table-sm">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Nome</th>
+                                        <th>Descrição</th>
+                                        <th>Quantidade</th>
+                                        <th>Excluir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($servico->peca as $i=>$p)
+                                    <tr>
+                                       <td>{{$i+=1}}</td>
+                                       <td>{{$p->nome}}</td>
+                                       <td>{{$p->descricao}}</td>
+                                       <td>{{$p->pivot->quantidade}}</td>
+                                       <td><a href="#" class="btn btn-outline-danger btn-sm">Excluir</a></td>
+                                    </tr>
+                                @endforeach 
+                                </tbody>  
+                            </table>    
                             </div>
                         </div>
                     </div>
                 </div>
             <!-- -->
             </div>
-            <a href="/pagamentos/{{$servico->id}}" class="btn btn-sm btn-primary">Realizar Pagamento</a>
-
+            <div class="row">
+                <div class="col">
+                    <a href="/pagamentos/{{$servico->id}}" class="btn btn-sm btn-primary">Realizar Pagamento</a>
+                </div>
+                <div class="col">
+                    <a href="/pecas/servico/{{$servico->id}}" class="btn btn-sm btn-primary">Inserir Peças</a>
+                </div>
+            </div>
 
         </form>
     </div>

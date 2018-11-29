@@ -42,7 +42,7 @@
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
                     @foreach($pes->telefone as $i=>$p)
-                        <label for="inputEmail">telefone {{$i=+1}}: {{$p->numero}}</label>
+                        <label for="inputEmail">telefone {{$i=i+1}}: {{$p->numero}}</label>
                     @endforeach
                 </div>
             </div>

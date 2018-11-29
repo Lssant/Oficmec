@@ -47,6 +47,10 @@ Route::group(['prefix' => 'veiculos'], function () {
         Route::get('/editar/{id}','ControllerPeca@edit');
         Route::post('/{id}','ControllerPeca@update');
         Route::get('/apagar/{id}','ControllerPeca@destroy');
+        Route::get('/servico/{id}','ControllerPeca@informar');
+        Route::get('/inserir','ControllerPeca@insert');
+        Route::get('/inserir/{sid}/{pid}','ControllerPeca@escolher');
+        
     });
 
 // ----- Serviços
@@ -73,6 +77,9 @@ Route::group(['prefix' => 'pagamentos'], function(){
 
     Route::get('/{id}','ControllerPagamento@create');
     Route::post('/pagamento','ControllerPagamento@store');
+    Route::get('/excluir/{id}','ControllerPagamento@destroy');
+    Route::get('/servico/{id}','ControllerPagamento@show');
+
 });
 
 // ---- tipo pessoa

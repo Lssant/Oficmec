@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Servico extends Model
 {
-    
+    protected $primaryKey = 'id';
+
     protected $fillable =[
         'diagnostico',
         'descricao',

@@ -53,7 +53,6 @@ class ControllerPagamento extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -87,6 +86,14 @@ class ControllerPagamento extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        $pagamento = Pagamento::find($id);
+        $s = $pagamento->servico_id;
+        
+        if (isset($id))
+            $pagamento->delete();
+
+
+        return redirect()->action('ControllerServico@show',['id'=>$s]);
+
+        }
 }

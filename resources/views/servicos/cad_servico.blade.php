@@ -35,7 +35,7 @@
                         <label for="cpf">CPF</label>
                         <input type="text" class="form-control form-control-sm"   id="cpf" value="{{$cliente->cpf}}" placeholder="cpf" readonly>
                     </div>
-                </div>
+                </div> 
         <!--veículo -->
         <h6 class="card-title">Informações do Veículo:</h6>
                 <div class="form-row">
